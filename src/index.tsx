@@ -3,11 +3,17 @@ import * as React from "react"
 import ReactDOM from "react-dom"
 import { BrowserRouter } from "react-router-dom";
 import { Web3ReactProvider } from "@web3-react/core";
+import algoliasearch from 'algoliasearch';
+import { InstantSearch } from 'react-instantsearch-hooks';
 import { ethers } from "ethers";
 import { App } from "./App"
 import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 
+const searchClient = algoliasearch(
+  'FV7SROB882',
+  '4707245e6df9294b482fac8e8d56e7bd'
+);
 
 const getLibrary = (provider: any) => {
   const library = new ethers.providers.Web3Provider(provider);
@@ -19,11 +25,13 @@ const getLibrary = (provider: any) => {
 ReactDOM.render(
   <React.StrictMode>
     <ColorModeScript />
-    <Web3ReactProvider getLibrary={getLibrary}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Web3ReactProvider>
+    <InstantSearch searchClient={searchClient} indexName="instant_search">
+      <Web3ReactProvider getLibrary={getLibrary}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Web3ReactProvider>
+    </InstantSearch>
   </React.StrictMode>,
   document.getElementById("root"),
 )

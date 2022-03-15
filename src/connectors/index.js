@@ -7,18 +7,20 @@ const injected = new InjectedConnector({
 });
 
 const walletconnect = new WalletConnectConnector({
-  rpcUrl: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
+  rpcUrl: `https://mainnet.infura.io/v3/84842078b09946638c03157f83405213`,
   bridge: "https://bridge.walletconnect.org",
-  qrcode: true
+  qrcode: true,
+  chainId: 1
 });
 
 const walletlink = new WalletLinkConnector({
-  url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
-  appName: "web3-react-demo"
+  url: `https://mainnet.infura.io/v3/84842078b09946638c03157f83405213`,
+  appName: "web3-react-demo",
+  supportedChainIds: [1, 3, 4, 5, 42, 10, 137, 69, 420, 80001]
 });
 
 export const connectors = {
   injected: injected,
-  walletConnect: walletconnect,
-  coinbaseWallet: walletlink
+  // walletConnect: walletconnect,
+  // coinbaseWallet: walletlink
 };
