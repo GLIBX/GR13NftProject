@@ -21,12 +21,12 @@ const NavSection = () => {
         deactivate,
         active
       } = useWeb3React();
-    const [signature, setSignature] = useState("");
+    const [setSignature] = useState("");
     // const [error, setError] = useState("");
-    const [network, setNetwork] = useState(undefined);
-    const [message, setMessage] = useState("");
+    const [setNetwork] = useState(undefined);
+    const [setMessage] = useState("");
     // const [signedMessage, setSignedMessage] = useState("");
-    const [verified, setVerified] = useState();
+    const [setVerified] = useState();
 
     // const handleInput = (e) => {
     //     const msg = e.target.value;
