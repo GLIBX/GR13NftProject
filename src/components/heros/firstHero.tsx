@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack, Heading, Center, AvatarGroup, Avatar, SimpleGrid, Button, Text, Image, Spacer } from '@chakra-ui/react';
+import { Box, Stack, Heading, AvatarGroup, Avatar, Button, Text, Image, Spacer } from '@chakra-ui/react';
 import Logo from '../../assets/logo.png'
 
 const HeroOneSection = () => {

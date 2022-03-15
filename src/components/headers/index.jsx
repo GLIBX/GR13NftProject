@@ -1,13 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Flex, Input, Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerOverlay, DrawerFooter, DrawerCloseButton, DrawerBody, Image, Stack, Avatar, AvatarBadge, Badge, MenuItem, MenuList, Heading, Button, Spacer, useDisclosure, VStack, HStack, Tooltip, Text, Select, Menu, MenuButton } from '@chakra-ui/react';
+import { Box, Drawer, DrawerContent, DrawerHeader, DrawerOverlay, DrawerFooter, DrawerCloseButton, DrawerBody, Stack, Avatar, Badge, MenuItem, MenuList, Heading, Button, Spacer, useDisclosure, Menu, MenuButton } from '@chakra-ui/react';
 import { useWeb3React } from "@web3-react/core";
 import { Link } from 'react-router-dom'
 import SelectWalletModal from "../modals/selectWalletModal";
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { SearchBox } from "../search";
-import { ColorModeSwitcher } from "../ColorModeSwitcher"
+// import { ColorModeSwitcher } from "../ColorModeSwitcher"
 import { connectors } from '../../connectors'
-import { networkParams } from '../../connectors/networks'
 import AvatarIcon from '../../assets/imgicon.jpeg'
 import { BiWallet } from "react-icons/bi";
 
@@ -15,24 +14,24 @@ const NavSection = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const walletRef = useRef()
     const {
-        library,
-        chainId,
+        // library,
+        // chainId,
         account,
         activate,
         deactivate,
         active
       } = useWeb3React();
     const [signature, setSignature] = useState("");
-    const [error, setError] = useState("");
+    // const [error, setError] = useState("");
     const [network, setNetwork] = useState(undefined);
     const [message, setMessage] = useState("");
-    const [signedMessage, setSignedMessage] = useState("");
+    // const [signedMessage, setSignedMessage] = useState("");
     const [verified, setVerified] = useState();
 
-    const handleInput = (e) => {
-        const msg = e.target.value;
-        setMessage(msg);
-    };
+    // const handleInput = (e) => {
+    //     const msg = e.target.value;
+    //     setMessage(msg);
+    // };
 
     const refreshState = () => {
         window.localStorage.setItem("provider", undefined);
@@ -48,13 +47,13 @@ const NavSection = () => {
     };
 
     const truncateText = str =>  {
-        return `${str.slice(0, 4)}` + "..." + `${str.slice(37)}`
+        return str.slice(0, 4) + "..." + str.slice(37)
     }
 
     useEffect(() => {
         const provider = window.localStorage.getItem("provider");
         if (provider) activate(connectors[provider]);
-    }, []);
+    }, [activate]);
 
     return (
     <Box textAlign="center" fontSize="xl" minH="10vh" minW="100vw" p={20} pt={10}>

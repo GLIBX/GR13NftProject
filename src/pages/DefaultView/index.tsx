@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {  Flex, Stack } from '@chakra-ui/react'
+import {  Stack } from '@chakra-ui/react'
 import NavSection from "../../components/headers";
 import HeroOneSection from "../../components/heros/firstHero"
 

@@ -10,7 +10,7 @@ export interface SearchBoxProps extends UseSearchBoxProps {
 
 
 export function SearchBox(props: SearchBoxProps) {
-  const { query, refine, isSearchStalled } = useSearchBox(props);
+  const { query, refine } = useSearchBox(props);
   const [inputValue, setInputValue] = useState(query);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -40,7 +40,7 @@ export function SearchBox(props: SearchBoxProps) {
     if (query !== inputValue) {
       refine(inputValue);
     }
-  }, [inputValue, refine]);
+  }, [inputValue, refine, query]);
 
   // Track when the InstantSearch query changes to synchronize it with
   // the React state.
@@ -50,7 +50,7 @@ export function SearchBox(props: SearchBoxProps) {
     if (document.activeElement !== inputRef.current && query !== inputValue) {
       setInputValue(query);
     }
-  }, [query]);
+  }, [query, inputValue]);
 
   return (
     <Box justifyContent={'center'} px={5}>
