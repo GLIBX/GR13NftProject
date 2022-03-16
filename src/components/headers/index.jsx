@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Drawer, DrawerContent, DrawerHeader, DrawerOverlay, DrawerFooter, DrawerCloseButton, DrawerBody, Stack, Avatar, Badge, MenuItem, MenuList, Heading, Button, Spacer, useDisclosure, Menu, MenuButton } from '@chakra-ui/react';
+import { Box, Drawer, DrawerContent, DrawerHeader, DrawerOverlay, Image, DrawerFooter, DrawerCloseButton, DrawerBody, Stack, Avatar, Badge, MenuItem, MenuList, Heading, Button, Spacer, useDisclosure, Menu, MenuButton } from '@chakra-ui/react';
 import { useWeb3React } from "@web3-react/core";
 import { Link } from 'react-router-dom'
 import SelectWalletModal from "../modals/selectWalletModal";
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { SearchBox } from "../search";
+import { Chains } from "../../server/chains";
 // import { ColorModeSwitcher } from "../ColorModeSwitcher"
 import { connectors } from '../../connectors'
 import AvatarIcon from '../../assets/imgicon.jpeg'
@@ -55,6 +56,8 @@ const NavSection = () => {
         if (provider) activate(connectors[provider]);
     }, [activate]);
 
+    const chainData = [...Chains]
+
     return (
     <Box textAlign="center" fontSize="xl" minH="10vh" minW="100vw" p={20} pt={10}>
         <Stack direction="row" spacing={10}>
@@ -71,11 +74,10 @@ const NavSection = () => {
                     </Badge>
                 </MenuButton>
                 <MenuList>
-                    <MenuItem>All NFTs</MenuItem>
-                    <MenuItem>Ethereum</MenuItem>
-                    <MenuItem>Binanace Chanin</MenuItem>
-                    <MenuItem>Tezos</MenuItem>
-                    <MenuItem>Flow</MenuItem>
+                    <MenuItem pl={10}>All NFTs</MenuItem>
+                    {chainData.map((each, id) => {
+                        return (<MenuItem key={id}><Image src={each.logo_url} w={'1em'} mr={4} /> {each.label}</MenuItem>)
+                    })}
                 </MenuList>
             </Menu>
 
@@ -84,7 +86,7 @@ const NavSection = () => {
                     Stats
                 </MenuButton>
                 <MenuList>
-                    <MenuItem>Rakings</MenuItem>
+                    <MenuItem>Rankings</MenuItem>
                     <MenuItem>Activity</MenuItem>
                 </MenuList>
             </Menu>
@@ -95,7 +97,7 @@ const NavSection = () => {
             {!active ? (
                 <>
                     <Avatar src='https://bit.ly/broken-link' size={'md'} />
-                    <Button onClick={onOpen} bg={'#575FCC'} color={'#fff'}>Connect Wallet</Button>
+                    <Button onClick={onOpen} bg={'#575FCC'} color={'#fff'} px={10} py={5}>Connect Wallet</Button>
                     <SelectWalletModal isOpen={isOpen} closeModal={onClose} />
                 </>
             ) : (

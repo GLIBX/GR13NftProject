@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Stack, Heading, AvatarGroup, Avatar, Button, Text, Image, Spacer } from '@chakra-ui/react';
 import Logo from '../../assets/logo.png'
+import NFTImage from '../../assets/ape.png'
 
 const HeroOneSection = () => {
     return (
@@ -18,8 +19,8 @@ const HeroOneSection = () => {
                             <Stack direction={'row'}>
                                 <Text>Real time digital asset tracking to help you to navigate</Text>
                                 <Text color={'#575FCC'}>NFT</Text>
-                                <Text>markets with  transparency and confidence.</Text>
                             </Stack>
+                            <Text >markets with  transparency and confidence.</Text>
                             <Stack direction={'row'} spacing={10}>
                                 <Button bg={'#575FCC'} size={'lg'} px={8} color="#fff">Explore Now</Button>
                                 
@@ -34,8 +35,8 @@ const HeroOneSection = () => {
                     <Spacer />
 
                     <Box p={10} pt={0}>
-                        <Box bg="#000" borderRadius={'40px'} h={'60vh'} w={'30vw'} display="block" alignItems="center" justifyContent="space-between" p={5}>
-                            <Box bg="orange" borderRadius={'40px'} h={'45vh'} p={5}>
+                        <Box bg="#000" borderRadius={'40px'} h={'60vh'} w={'29vw'} display="block" alignItems="center" justifyContent="space-between" p={'1.5em'}>
+                            <Box bgPosition="center" bgSize={'cover'} bgRepeat="no-repeat"  h={'45vh'} w={'26vw'} p={'1em'} bgImage={NFTImage} borderRadius={'40px'}>
                                 <AvatarGroup size='md' max={2}>
                                     <Avatar name='Ryan Florence' src='https://bit.ly/ryan-florence' />
                                     <Avatar name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
@@ -46,12 +47,12 @@ const HeroOneSection = () => {
 
                             </Box>
 
-                            <Stack direction={'row'} color="#FFF" p={10}>
+                            <Stack direction={'row'} color="#FFF" p={5}>
                                 <Stack direction={'column'}>
                                     <p>Current bid:</p>
                                     <Stack direction={'row'}>
-                                        <Text color={'#575FCC'} fontSize={'2xl'} fontWeight={700}>2.08ETH</Text>
-                                        <Text fontSize={'2xl'} fontWeight={700}>($13,564) </Text>
+                                        <Text color={'#575FCC'} fontSize={'xl'} fontWeight={700}>2.08ETH</Text>
+                                        <Text fontSize={'xl'} fontWeight={700}>($13,564) </Text>
                                     </Stack>
                                 </Stack>
 
