@@ -34,12 +34,12 @@ const CreateNFTSection = () => {
                                 <Box justifyContent={'left'} w={'20vw'} p={'1em'}>
                                     <Image src={WalletIcon} alt="wallet icon" />
                                     <Heading py={2} size={'md'} color={'#575FCC'}>Set up your wallet</Heading>
-                                    <p>Once you’ve set up your wallet of choice connect it to <a href="#" color='#575FCC'> MintWave.</a></p>
+                                    <p>Once you’ve set up your wallet of choice connect it to <a href="https://gr-13-nft-project-4quqcrf76-glibx.vercel.app/" color='#575FCC'> MintWave.</a></p>
                                 </Box>
                                 <Box justifyContent={'left'} w={'20vw'} p={'1em'}>
                                     <Image src={CollectionIcon} alt="wallet icon" />
                                     <Heading py={2} size={'md'} color={'#575FCC'}>Create your collection</Heading>
-                                    <p>Click <a href="#" color='#575FCC'>Create</a> and set up your collection and customize your profile</p>
+                                    <p>Click <a href="https://gr-13-nft-project-4quqcrf76-glibx.vercel.app/" color='#575FCC'>Create</a> and set up your collection and customize your profile</p>
                                 </Box>
                             </Stack>
                             <Stack direction={'row'} spacing={5} p={2}>
