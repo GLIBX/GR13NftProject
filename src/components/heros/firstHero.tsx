@@ -10,11 +10,11 @@ const HeroOneSection = () => {
                     <Box>
                         <Stack direction='column' spacing={5}>
                             <Text fontSize={'1.5em'} color={'#575FCC'}>NFT MARKETPLACE</Text>
-                            <Heading fontSize={'5em'}>Discover The Best</Heading>
-                            <Heading fontSize={'5em'}>Digital Art and</Heading>
+                            <Heading fontSize={'4em'}>Discover The Best</Heading>
+                            <Heading fontSize={'4em'}>Digital Art and</Heading>
                             <Stack direction={'row'}>
-                                <Heading fontSize={'5em'}>Collect</Heading>
-                                <Heading fontSize={'5em'} color={'#575FCC'}>&nbsp;NFTs.</Heading>
+                                <Heading fontSize={'4em'}>Collect</Heading>
+                                <Heading fontSize={'4em'} color={'#575FCC'}>&nbsp;NFTs.</Heading>
                             </Stack>
                             <Stack direction={'row'}>
                                 <Text>Real time digital asset tracking to help you to navigate</Text>

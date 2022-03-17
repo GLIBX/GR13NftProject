@@ -6,11 +6,13 @@ import {
 import { Routes, Route } from "react-router-dom";
 import DefaultView from "./pages/DefaultView";
 import DefaultCollectionsPage from "./pages/CollectionsView";
+import ExploreCollectionsView from "./pages/ExploreView"
 
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Routes>
       <Route path="/" element={<DefaultView />} />
+      <Route path="/explore-all" element={<ExploreCollectionsView />} />
       <Route path="/collections" element={<DefaultCollectionsPage />} />
     </Routes>
   </ChakraProvider>

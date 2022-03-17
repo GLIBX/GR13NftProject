@@ -61,7 +61,7 @@ const NavSection = () => {
     return (
     <Box textAlign="center" fontSize="xl" minH="10vh" minW="100vw" p={20} pt={10}>
         <Stack direction="row" spacing={10}>
-            <Heading fontSize="3xl" pt={2}>MintWave.</Heading>
+            <Heading fontSize="3xl" pt={2} as={Link} to="/">MintWave.</Heading>
 
             <SearchBox placeholder="Search items, collections and accounts.."/>
 
@@ -74,7 +74,7 @@ const NavSection = () => {
                     </Badge>
                 </MenuButton>
                 <MenuList>
-                    <MenuItem pl={10}>All NFTs</MenuItem>
+                    <MenuItem as={Link} to="/explore-all" pl={10}>All NFTs</MenuItem>
                     {chainData.map((each, id) => {
                         return (<MenuItem key={id}><Image src={each.logo_url} w={'1em'} mr={4} /> {each.label}</MenuItem>)
                     })}
