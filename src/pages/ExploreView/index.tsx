@@ -1,5 +1,5 @@
 import React from "react";
-import {  Stack, Text, Heading } from '@chakra-ui/react'
+import {  Stack, Text, Center, Heading } from '@chakra-ui/react'
 import NavSection from "../../components/headers";
 import CollectionTab from "../../components/tabs/CollectionTabs";
 
@@ -11,7 +11,7 @@ const ExploreCollectionsView: React.FC = props => {
                 <Heading fontSize={'2em'}>Explore Categories</Heading>
                 <Text>NFTs on MintWave are categorized by the blockchain network they exist on.</Text>
             </Stack>
-            <Stack px={20}>
+            <Stack alignSelf={'center'} px={'30em'}>
                 <CollectionTab />
             </Stack>
         </Stack>

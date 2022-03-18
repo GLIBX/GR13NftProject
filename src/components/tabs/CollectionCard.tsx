@@ -17,9 +17,9 @@ interface CollectionCardProps {
 
 const CollectionCard: React.FC<CollectionCardProps> = (props) => {
     return (
-        <Box textAlign={'center'} display={'flex'} borderRadius={'15px'} h={'20vh'} w={'20vw'}>
-            <Image src={props.first_nft_image} />
-            <Heading>{props.collection_name}</Heading>
+        <Box textAlign={'center'} display={'flex'} bgSize={'50vh'} bgImage={props.first_nft_image} bg={'gray'} borderRadius={'15px'} h={'20vh'} w={'25vw'}>
+            <Image src={props.first_nft_image} w={'2em'} h={'3em'} p={2} />
+            <Text>{props.collection_name}</Text>
         </Box>
     )
 };

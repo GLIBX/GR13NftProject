@@ -1,58 +1,61 @@
-import React from "react";
-import { TabPanels, TabPanel, Flex } from '@chakra-ui/react'
+import React, { useCallback } from "react";
+import { Flex, Stack, Wrap, WrapItem } from '@chakra-ui/react'
 import { useEffect, useState } from "react";
 import { getNFTMarket } from '../../server/index'
 import CollectionCard from "./CollectionCard";
+import { getChainIds } from "../../server/utils";
 
 interface CollectionPanelProps {
-    key: number
     chainId: number
 }
 
 
 const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
     const [data, setData] = useState([]);
+    const chains = getChainIds()
 
-    const fetchData = async () => {
+    const fetchData = useCallback( async () => {
+        
         await Promise.all([getNFTMarket(chainId)])
             .then((res) => {
                 let newData = []
                 res[0].data.items.forEach((data, index) => {
                     console.log(data)
-                    newData.push(data)
+                    newData.push(data)     
                 })
                 setData(newData)
                 return newData
             })
             .catch((err) => {
                 // SEND ERROR MESSAGE
-                alert(err);
+                console.log(err);
+                setData([])
                 return [];
             })
-    }
+    }, [chainId])
+
+    // const removeAll = async ()
 
     useEffect(() => {
         fetchData()
-    }, [chainId])
+    }, [fetchData])
+
 
     return (
-        <TabPanels>
-            <TabPanel p={4} key={chainId}>
+        <Wrap>
             {data.map((tab, index) => (
-                <>
-                <p key={index}>{tab.collection_address}</p>
-                <Flex>
-                    <CollectionCard
-                        collection_name={tab.collection_name}
-                        collection_address={tab.collection_address}
-                        chain_id={chainId}
-                        first_nft_image={tab.first_nft_image}
-                    />
-                </Flex>
-                </>
+                <WrapItem>
+                    <Stack>
+                        <CollectionCard
+                            collection_name={tab.collection_name}
+                            collection_address={tab.collection_address}
+                            chain_id={tab.chain_id}
+                            first_nft_image={tab.first_nft_image}
+                        />
+                    </Stack>
+                </ WrapItem>
             ))}
-            </TabPanel>
-        </TabPanels>
+        </ Wrap>
     )
 };
 
