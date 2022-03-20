@@ -3,6 +3,7 @@ import {  Stack } from '@chakra-ui/react'
 import NavSection from "../../components/headers";
 import HeroOneSection from "../../components/heros/firstHero"
 import CreateNFTSection from "../../components/infoCards/createCard";
+import FooterSection from "../../components/footer";
 
 const DefaultView: React.FC = props => {
     return (
@@ -10,6 +11,12 @@ const DefaultView: React.FC = props => {
             <NavSection />
             <HeroOneSection />
             <CreateNFTSection />
+
+
+
+
+            
+            <FooterSection />
         </Stack>
     )
 };

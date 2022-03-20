@@ -69,14 +69,13 @@ const NavSection = () => {
             <Menu>
                 <MenuButton as={Button} variant={'outline'} rightIcon={<ChevronDownIcon />}>
                     Explore
-                    <Badge ml='1' colorScheme='red'>
-                        Hot
-                    </Badge>
                 </MenuButton>
-                <MenuList>
-                    <MenuItem as={Link} to="/explore-all" pl={10}>All NFTs</MenuItem>
+                <MenuList p={2}>
+                    <MenuItem as={Button} variant={'ghost'} pl={10} justifyContent={'left'}>
+                        <Link to="/explore-all">All Collections</Link>
+                    </MenuItem>
                     {chainData.map((each, id) => {
-                        return (<MenuItem key={id}><Image src={each.logo_url} w={'1em'} mr={4} /> {each.label}</MenuItem>)
+                        return (<MenuItem as={Button} variant={'ghost'} justifyContent={'left'} key={id}><Image src={each.logo_url} w={'1em'} mx={2} /> {each.label} </MenuItem>)
                     })}
                 </MenuList>
             </Menu>
@@ -85,9 +84,9 @@ const NavSection = () => {
                 <MenuButton as={Button} variant={'outline'} rightIcon={<ChevronDownIcon />}>
                     Stats
                 </MenuButton>
-                <MenuList>
-                    <MenuItem>Rankings</MenuItem>
-                    <MenuItem>Activity</MenuItem>
+                <MenuList p={2}>
+                    <MenuItem as={Button} variant={'ghost'} justifyContent={'left'}>Rankings</MenuItem>
+                    <MenuItem as={Button} variant={'ghost'} justifyContent={'left'}>Activity</MenuItem>
                 </MenuList>
             </Menu>
             <Button variant={'outline'} as={Link} to="/">Resources</Button>
@@ -104,13 +103,13 @@ const NavSection = () => {
                 <>
                     <Menu>
                         <MenuButton as={Avatar}  src={AvatarIcon} size={'md'} />
-                        <MenuList>
-                            <MenuItem>Profile</MenuItem>
-                            <MenuItem>Favorites</MenuItem>
-                            <MenuItem>Watchlist</MenuItem>
-                            <MenuItem>My Collections</MenuItem>
-                            <MenuItem>Settings</MenuItem>
-                            <MenuItem onClick={disconnect}>Log Out</MenuItem>
+                        <MenuList p={2}>
+                            <MenuItem as={Button} variant={'ghost'} justifyContent={'left'}>Profile</MenuItem>
+                            <MenuItem as={Button} variant={'ghost'} justifyContent={'left'}>Favorites</MenuItem>
+                            <MenuItem as={Button} variant={'ghost'} justifyContent={'left'}>Watchlist</MenuItem>
+                            <MenuItem as={Button} variant={'ghost'} justifyContent={'left'}>My Collections</MenuItem>
+                            <MenuItem as={Button} variant={'ghost'} justifyContent={'left'}>Settings</MenuItem>
+                            <MenuItem as={Button} variant={'ghost'} justifyContent={'left'} onClick={disconnect}>Log Out</MenuItem>
                         </MenuList>
                     </Menu>
                     <Avatar as={BiWallet} bg={'none'} onClick={onOpen} ref={walletRef}/>
@@ -145,23 +144,6 @@ const NavSection = () => {
                     </Drawer>
                 </>
             )}
-            {/* <VStack justifyContent="center" alignItems="center" padding="10px 0">
-            <HStack>
-                <Text>{`Connection Status: `}</Text>
-                {active ? (
-                <Text>Yes</Text>
-                ) : (
-                <Text>No</Text>
-                )}
-            </HStack>
-
-            <Tooltip label={account} placement="right">
-                <Text>{`Account: ${account}`}</Text>
-            </Tooltip>
-            <Text>{`Network ID: ${chainId ? chainId : "No Network"}`}</Text>
-            </VStack> */}
-
-            {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
         </Stack>
         <Stack direction="row" borderBottom={'1px solid'} pt={'1em'} spacing={10} opacity="0.1" />
 

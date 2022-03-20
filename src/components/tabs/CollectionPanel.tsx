@@ -14,7 +14,7 @@ const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
     const [data, setData] = useState([]);
     const chains = getChainIds()
 
-    const fetchData = useCallback( async () => {
+    const fetchData = useCallback(async () => {
         
         await Promise.all([getNFTMarket(chainId)])
             .then((res) => {
@@ -38,21 +38,19 @@ const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
 
     useEffect(() => {
         fetchData()
-    }, [fetchData])
+    }, [chainId])
 
 
     return (
         <Wrap>
             {data.map((tab, index) => (
-                <WrapItem>
-                    <Stack>
-                        <CollectionCard
-                            collection_name={tab.collection_name}
-                            collection_address={tab.collection_address}
-                            chain_id={tab.chain_id}
-                            first_nft_image={tab.first_nft_image}
-                        />
-                    </Stack>
+                <WrapItem key={index} p={'2rem'}>
+                    <CollectionCard
+                        collection_name={tab.collection_name}
+                        collection_address={tab.collection_address}
+                        chain_id={tab.chain_id}
+                        first_nft_image={tab.first_nft_image}
+                    />
                 </ WrapItem>
             ))}
         </ Wrap>
