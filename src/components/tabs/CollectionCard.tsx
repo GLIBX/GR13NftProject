@@ -23,7 +23,21 @@ interface CollectionCardProps {
 const CollectionCard: React.FC<CollectionCardProps> = (props) => {
     return (
         <SlideFade in={true} offsetY='20px'>
-            <Box textAlign={'center'} display={'block'} bg={'#000'} borderRadius={'15px'} h={'25vh'} w={'15vw'} alignItems="center" justifyContent="space-between" p={'1em'}>
+            <Box
+                textAlign={'center'}
+                display={'block'}
+                bg={'#000'}
+                borderRadius={'15px'}
+                h={'25vh'}
+                w={'15vw'}
+                alignItems="center"
+                justifyContent="space-between"
+                p={'1em'}
+                _hover={{
+                    borderRadius: '5px',
+                    bg: 'gray'
+                }}
+            >
                 <Image src={props.first_nft_image} alt={props.first_nft_image} h={'14vh'} w={'13vw'} borderTopRadius={'15px'} />
 
                 <Box py={'1em'}>
