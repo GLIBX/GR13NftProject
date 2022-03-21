@@ -1,5 +1,5 @@
 import React from "react";
-import {  Stack, Text, Center, Heading } from '@chakra-ui/react'
+import {  Stack, Text, Heading } from '@chakra-ui/react'
 import NavSection from "../../components/headers";
 import CollectionTab from "../../components/tabs/CollectionTabs";
 import FooterSection from "../../components/footer";

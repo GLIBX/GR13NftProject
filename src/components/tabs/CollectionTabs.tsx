@@ -1,7 +1,6 @@
 import React from "react";
 import {
     Tab,
-    Text,
     Divider,
     Tabs,
     TabList,
@@ -15,10 +14,9 @@ import { getChainIds } from '../../server/utils'
 const CollectionTab: React.FC = () => {
     
     const data = getChainIds()
-    const [tabIndex, setTabIndex] = React.useState(0)
     
     return (
-        <Tabs variant='soft-rounded' colorScheme='blue' onChange={(index) => setTabIndex(index)} isLazy>
+        <Tabs variant='soft-rounded' colorScheme='blue' isLazy>
             <TabList w={"80vw"} justifyContent="center">
                 {data.map((tab, id) => (
                     <>

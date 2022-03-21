@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
-import { Flex, Stack, Wrap, WrapItem } from '@chakra-ui/react'
+import { Wrap, WrapItem } from '@chakra-ui/react'
 import { useEffect, useState } from "react";
 import { getNFTMarket } from '../../server/index'
 import CollectionCard from "./CollectionCard";
-import { getChainIds } from "../../server/utils";
+// import { getChainIds } from "../../server/utils";
 
 interface CollectionPanelProps {
     chainId: number
@@ -12,7 +12,6 @@ interface CollectionPanelProps {
 
 const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
     const [data, setData] = useState([]);
-    const chains = getChainIds()
 
     const fetchData = useCallback(async () => {
         
@@ -38,7 +37,7 @@ const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
 
     useEffect(() => {
         fetchData()
-    }, [chainId])
+    })
 
 
     return (
