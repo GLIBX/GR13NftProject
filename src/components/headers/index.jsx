@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Drawer, DrawerContent, DrawerHeader, DrawerOverlay, Image, DrawerFooter, DrawerCloseButton, DrawerBody, Stack, Avatar, Badge, MenuItem, MenuList, Heading, Button, Spacer, useDisclosure, Menu, MenuButton } from '@chakra-ui/react';
+import { Box, Drawer, DrawerContent, DrawerHeader, DrawerOverlay, Image, DrawerFooter, DrawerCloseButton, DrawerBody, Stack, Avatar, MenuItem, MenuList, Heading, Button, Spacer, useDisclosure, Menu, MenuButton } from '@chakra-ui/react';
 import { useWeb3React } from "@web3-react/core";
 import { Link } from 'react-router-dom'
 import SelectWalletModal from "../modals/selectWalletModal";
