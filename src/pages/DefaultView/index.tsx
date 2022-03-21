@@ -11,10 +11,6 @@ const DefaultView: React.FC = props => {
             <NavSection />
             <HeroOneSection />
             <CreateNFTSection />
-
-
-
-
             
             <FooterSection />
         </Stack>

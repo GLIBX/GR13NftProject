@@ -2,15 +2,8 @@ import React from "react";
 import {
     Box,
     Text,
-    Stack,
-    AvatarGroup,
-    Avatar,
-    Spacer,
     SlideFade,
-    Button,
-    Image,
-    Heading,
-    useDisclosure
+    Image
 } from '@chakra-ui/react';
 
 interface CollectionCardProps {
@@ -44,12 +37,6 @@ const CollectionCard: React.FC<CollectionCardProps> = (props) => {
                     <Box>
                         <Text color={'#fff'} fontSize={'lg'} fontWeight={'600'}>{props.collection_name}</Text>
                     </Box>
-
-{/* 
-                    <Box display={'flex'} justifyContent={'space-between'} alignItems='baseline' py={'1em'}>
-                            <Text color={'#fff'}>0.5 ETH</Text>
-                            <Text color={'#fff'}>❤️</Text>
-                        </Box> */}
                 </Box>
             </Box>
         </SlideFade>
