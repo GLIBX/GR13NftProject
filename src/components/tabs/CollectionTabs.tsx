@@ -14,14 +14,14 @@ import { getChainIds } from '../../server/utils'
 const CollectionTab: React.FC = () => {
     
     const data = getChainIds()
-    
+
     return (
         <Tabs variant='soft-rounded' colorScheme='blue' isLazy>
-            <TabList w={"80vw"} justifyContent="center">
+            <TabList justifyContent="center">
                 {data.map((tab, id) => (
                     <>
                     <Tab key={tab} fontSize={'lg'} fontWeight={500} onClick={() => console.log(parseInt(tab.id))}>{tab.label}</Tab>
-                    </>
+                    </> 
                 ))}
             </TabList>
             <Divider />

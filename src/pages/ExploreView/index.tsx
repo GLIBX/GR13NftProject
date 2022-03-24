@@ -12,7 +12,7 @@ const ExploreCollectionsView: React.FC = props => {
                 <Heading fontSize={'2em'}>Explore Collections</Heading>
                 <Text>NFTs on MintWave are categorized by the blockchain network they exist on.</Text>
             </Stack>
-            <Stack alignSelf={'center'} px={'30em'}>
+            <Stack alignSelf={'center'}>
                 <CollectionTab />
             </Stack>
 

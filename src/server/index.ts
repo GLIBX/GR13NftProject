@@ -16,6 +16,23 @@ export function getNFTMarket(chainId: number) {
 }
 
 
+
 export function getTopNFTs() {
+
+}
+
+
+
+export function getCollectionData( chainId: number, collectionAddress: string ) {
+    return axios
+        .get(`https://api.covalenthq.com/v1/${chainId}/nft_market/collection/${collectionAddress}/?quote-currency=USD&format=JSON&key=${API_KEY}`)
+        .then((resp) => {
+            console.log(resp.data)
+            return resp.data;
+        })
+        .catch((err) => {
+            console.log(err.message);
+            return err;
+        });
 
 }

@@ -12,7 +12,7 @@ interface CollectionPanelProps {
 
 const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
     const [data, setData] = useState([]);
-
+    
     const fetchData = useCallback(async () => {
         
         await Promise.all([getNFTMarket(chainId)])
@@ -45,10 +45,10 @@ const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
             {data.map((tab, index) => (
                 <WrapItem key={index} p={'2rem'}>
                     <CollectionCard
-                        collection_name={tab.collection_name}
-                        collection_address={tab.collection_address}
-                        chain_id={tab.chain_id}
-                        first_nft_image={tab.first_nft_image}
+                        collectionName={tab.collection_name}
+                        collectionAddress={tab.collection_address}
+                        chainId={tab.chain_id}
+                        firstNftImage={tab.first_nft_image}
                     />
                 </ WrapItem>
             ))}
