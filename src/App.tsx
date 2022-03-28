@@ -6,7 +6,8 @@ import {
 import { Routes, Route } from "react-router-dom";
 import DefaultView from "./pages/DefaultView";
 import CollectionPage from "./pages/CollectionsView";
-import ExploreCollectionsView from "./pages/ExploreView"
+import ExploreCollectionsView from "./pages/ExploreView";
+import NftDetailView from "./pages/NftDetailView";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -14,6 +15,7 @@ export const App = () => (
       <Route path="/" element={<DefaultView />} />
       <Route path="/explore-all" element={<ExploreCollectionsView />} />
       <Route path="/collections/:chainId/:address" element={<CollectionPage />} />
+      <Route path="/collections/:chainId/:address/:tokenId" element={<NftDetailView />} />
     </Routes>
   </ChakraProvider>
 )

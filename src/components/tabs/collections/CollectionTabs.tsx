@@ -8,7 +8,7 @@ import {
     TabPanels
 } from '@chakra-ui/react'
 import CollectionPanel from "./CollectionPanel";
-import { getChainIds } from '../../server/utils'
+import { getChainIds } from '../../../server/utils';
 
 
 const CollectionTab: React.FC = () => {

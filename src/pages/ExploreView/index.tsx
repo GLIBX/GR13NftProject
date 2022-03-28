@@ -1,7 +1,7 @@
 import React from "react";
 import {  Stack, Text, Heading } from '@chakra-ui/react'
 import NavSection from "../../components/headers";
-import CollectionTab from "../../components/tabs/CollectionTabs";
+import CollectionTab from "../../components/tabs/collections/CollectionTabs";
 import FooterSection from "../../components/footer";
 
 const ExploreCollectionsView: React.FC = props => {

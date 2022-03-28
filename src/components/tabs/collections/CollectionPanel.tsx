@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Wrap, WrapItem } from '@chakra-ui/react'
 import { useEffect, useState } from "react";
-import { getNFTMarket } from '../../server/index'
+import { getNFTMarket } from '../../../server/index'
 import CollectionCard from "./CollectionCard";
 // import { getChainIds } from "../../server/utils";
 
@@ -48,7 +48,7 @@ const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
                         collectionName={tab.collection_name}
                         collectionAddress={tab.collection_address}
                         chainId={tab.chain_id}
-                        firstNftImage={tab.first_nft_image}
+                        firstNftImage={tab.first_nft_image_512}
                     />
                 </ WrapItem>
             ))}
