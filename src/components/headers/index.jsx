@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Box, Drawer, DrawerContent, DrawerHeader, DrawerOverlay, Image, DrawerFooter, DrawerCloseButton, DrawerBody, Stack, Avatar, MenuItem, MenuList, Heading, Button, Spacer, useDisclosure, Menu, MenuButton } from '@chakra-ui/react';
 import { useWeb3React } from "@web3-react/core";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import SelectWalletModal from "../modals/selectWalletModal";
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { SearchBox } from "../search";
+import { truncateText } from "../../server/utils"
 import { Chains } from "../../server/chains";
 // import { ColorModeSwitcher } from "../ColorModeSwitcher"
 import { connectors } from '../../connectors'
@@ -14,6 +15,7 @@ import { BiWallet } from "react-icons/bi";
 const NavSection = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const walletRef = useRef()
+    const navigate = useNavigate()
     const {
         // library,
         // chainId,
@@ -29,10 +31,9 @@ const NavSection = () => {
     // const [signedMessage, setSignedMessage] = useState("");
     const [setVerified] = useState();
 
-    // const handleInput = (e) => {
-    //     const msg = e.target.value;
-    //     setMessage(msg);
-    // };
+    const handleExploreClick = id => {
+        navigate('/explore-all')
+    }
 
     const refreshState = () => {
         window.localStorage.setItem("provider", undefined);
@@ -46,10 +47,6 @@ const NavSection = () => {
         refreshState();
         deactivate();
     };
-
-    const truncateText = str =>  {
-        return str.slice(0, 4) + "..." + str.slice(37)
-    }
 
     useEffect(() => {
         const provider = window.localStorage.getItem("provider");
@@ -75,7 +72,7 @@ const NavSection = () => {
                         <Link to="/explore-all">All Collections</Link>
                     </MenuItem>
                     {chainData.map((each, id) => {
-                        return (<MenuItem as={Button} variant={'ghost'} justifyContent={'left'} key={id}><Image src={each.logo_url} w={'1em'} mx={2} /> {each.label} </MenuItem>)
+                        return (<MenuItem as={Button} variant={'ghost'} onClick={() => handleExploreClick(each.id)} justifyContent={'left'} key={id}><Image src={each.logo_url} w={'1em'} mx={2} /> {each.label} </MenuItem>)
                     })}
                 </MenuList>
             </Menu>

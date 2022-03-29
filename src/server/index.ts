@@ -11,7 +11,7 @@ export function getNFTMarket(chainId: number) {
             return resp.data;
         })
         .catch((err) => {
-            console.log(err.message);
+            console.log(err.error_message);
             return err;
         });
 }
@@ -32,7 +32,7 @@ export function getCollectionHistory( chainId: number, collectionAddress: string
             return resp.data;
         })
         .catch((err) => {
-            console.log(err.message);
+            console.log(err.error_message);
             return err;
         });
 
@@ -47,7 +47,7 @@ export function getCollectionNFTs( chainId: number, collectionAddress: string ) 
         return resp.data;
     })
     .catch((err) => {
-        console.log(err.message);
+        console.log(err.error_message);
         return err;
     });   
 }
@@ -60,7 +60,7 @@ export function getTokenData ( chainId: number, collectionAddress: string, token
         return resp.data;
     })
     .catch((err) => {
-        console.log(err.message);
+        console.log(err.error_message);
         return err;
     });    
 }

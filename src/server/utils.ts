@@ -13,3 +13,8 @@ export function getChainIds () {
 
     return ids
 }
+
+
+export const truncateText = str =>  {
+    return str.slice(0, 4) + "..." + str.slice(37)
+}
