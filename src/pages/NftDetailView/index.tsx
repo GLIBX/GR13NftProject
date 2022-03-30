@@ -24,19 +24,18 @@ const NftDetailView: React.FC = () => {
             await Promise.all([getTokenData(parseInt(chainId), address, parseInt(tokenId))])
                 .then((res) => {
                     setData(res[0].data.items[0].nft_data[0])
+                    setLoading(false)
                 })
                 .catch((err) => {
                     // SEND ERROR MESSAGE
                     console.log(err)
+                    setLoading(false)
                 })
         }
     }, [chainId, address, tokenId])
 
     useEffect(() => {
         fetchData()
-        setTimeout(() => {
-            setLoading(false)
-        }, 2500)
     }, [fetchData])
 
     return (

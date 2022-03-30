@@ -29,20 +29,18 @@ const CollectionPage: React.FC = () => {
                         newData.push(data)     
                     })
                     setData(newData)
-                    return newData
+                    setLoading(false)
                 })
                 .catch((err) => {
                     // SEND ERROR MESSAGE
                     console.log(err)
+                    setLoading(false)
                 })
         }
     }, [chainId, address])
 
     useEffect(() => {
         fetchData()
-        setTimeout(() => {
-            setLoading(false)
-        }, 2500)
     }, [fetchData])
 
     return (
@@ -82,7 +80,7 @@ const CollectionPage: React.FC = () => {
                                                 <Tr key={index} p={'2rem'}>
                                                     <Td>{index}</Td>
                                                     <Td><Image src={tab.logo_url} /></Td>
-                                                    <Td>{`${tab.contract_name}#${tab.token_id} `}</Td>
+                                                    <Td>{`${tab.contract_name} #${tab.token_id} `}</Td>
                                                     <Td><Button onClick={() => handleClick(parseInt(tab.token_id))}> More Info.</Button></Td>
                                                 </Tr>
                                             )

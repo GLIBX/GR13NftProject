@@ -25,13 +25,12 @@ const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
                     newData.push(data)     
                 })
                 setData(newData)
-                return newData
+                setLoading(false)
             })
             .catch((err) => {
                 // SEND ERROR MESSAGE
                 console.log(err);
-                setData([])
-                return [];
+                setLoading(false)
             })
     }, [chainId])
 
@@ -39,9 +38,6 @@ const CollectionPanel: React.FC<CollectionPanelProps> = ({ chainId }) => {
 
     useEffect(() => {
         fetchData()
-        setTimeout(() => {
-            setLoading(false)
-        }, 2500)
     })
 
 
